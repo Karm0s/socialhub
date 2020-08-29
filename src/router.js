@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 
 // routes
-import LoginPage from "./pages/LoginPage.vue";
+import AuthPage from "./pages/AuthPage.vue";
 
 Vue.use(Router);
 
@@ -12,8 +12,8 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "login",
-      component: LoginPage
+      name: "auth",
+      component: AuthPage
     }
   ]
 });
