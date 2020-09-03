@@ -110,7 +110,7 @@ export default {
       this.authenticate({ email: this.email, password: this.password }).then(
         () => {
           console.log("Login Done, redirecting now... (next time)");
-          this.$router.push({path: 'chat'});
+          this.$router.push({path: 'forum'});
         }
       );
     },

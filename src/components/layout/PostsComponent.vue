@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-list class="mb-2">
-      <div v-for="message in messages" :key="message.id">
+      <div v-for="message in getPosts" :key="message.id">
         <ForumPost :username="message.username" :message="message.content"/>
       </div>
     </v-list>
@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from "vuex";
 import ForumPost from "../ui/ForumPost";
 
 export default {
@@ -34,9 +35,14 @@ export default {
       ]
     }
   },
+  created(){
+    this.loadPosts();
+  },
+  computed: mapGetters(['getPosts']),
   components: {
     ForumPost
-  }
+  },
+  methods: mapActions(['loadPosts'])
 };
 </script>
 

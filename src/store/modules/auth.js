@@ -13,7 +13,7 @@ const getters = {
 const actions = {
   async authenticate({ commit }, identifiers) {
     const { data } = await axios.post(
-      "http://localhost:1337/auth/local",
+      `${process.env.VUE_APP_API_URL}/auth/local`,
       {
         identifier: identifiers.email,
         password: identifiers.password
@@ -25,7 +25,7 @@ const actions = {
   },
   async register({ commit }, identifiers) {
     const { data } = await axios.post(
-      "http://localhost:1337/auth/local/register",
+      `${process.env.VUE_APP_API_URL}/auth/local/register`,
       identifiers
     );
     commit("setUser", data.user);
