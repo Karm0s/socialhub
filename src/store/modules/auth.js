@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const store = {
+const state = {
   user: null,
   jwtToken: ""
 };
@@ -40,7 +40,7 @@ const mutations = {
 };
 
 export default {
-  store,
+  state,
   getters,
   actions,
   mutations
