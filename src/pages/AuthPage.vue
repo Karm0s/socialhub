@@ -117,7 +117,7 @@ export default {
     signUp() {
       this.register({username: this.username, email: this.email, password: this.password}).then(() => {
         console.log("Registration done, redirecting now... (next time)");
-        this.$router.push({path: 'chat'});
+        this.$router.push({path: 'forum'});
       });
     }
   }

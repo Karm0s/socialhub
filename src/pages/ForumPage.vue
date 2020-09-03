@@ -1,19 +1,19 @@
 <template>
 <v-main>
   <HeaderComponent/>
-  <ChatArea/>
+  <PostsComponent/>
 </v-main>
 </template>
 
 <script>
 import HeaderComponent from "../components/layout/HeaderComponent";
-import ChatArea from "../components/layout/ChatArea";
+import PostsComponent from "../components/layout/PostsComponent";
 
 export default {
-  name: 'ChatPage',
+  name: 'ForumPage',
   components: {
     HeaderComponent,
-    ChatArea
+    PostsComponent
   },
 };
 </script>

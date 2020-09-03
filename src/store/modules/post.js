@@ -1,9 +1,9 @@
 const state = {
-  allMessages: []
+  allPosts: []
 };
 
 const getters = {
-  getMessages: (state) => state.allMessages
+  getPosts: (state) => state.allPosts
 };
 
 const actions = {

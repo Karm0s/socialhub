@@ -2,17 +2,17 @@
   <v-container>
     <v-list class="mb-2">
       <div v-for="message in messages" :key="message.id">
-        <ChatMessage :username="message.username" :message="message.content"/>
+        <ForumPost :username="message.username" :message="message.content"/>
       </div>
     </v-list>
   </v-container>
 </template>
 
 <script>
-import ChatMessage from "../ui/ChatMessage";
+import ForumPost from "../ui/ForumPost";
 
 export default {
-  name: "ChatArea",
+  name: "PostsComponent",
   data(){
     return {
       messages: [
@@ -35,7 +35,7 @@ export default {
     }
   },
   components: {
-    ChatMessage
+    ForumPost
   }
 };
 </script>

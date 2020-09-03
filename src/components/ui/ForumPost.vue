@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "ChatMessage",
+  name: "ForumPost",
   props: ["username", "message"],
 };
 </script>

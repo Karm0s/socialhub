@@ -3,7 +3,7 @@ import Router from "vue-router";
 
 // routes
 import AuthPage from "./pages/AuthPage.vue";
-import ChatPage from "./pages/ChatPage.vue";
+import ForumPage from "./pages/ForumPage.vue";
 
 
 Vue.use(Router);
@@ -18,9 +18,9 @@ export default new Router({
       component: AuthPage
     },
     {
-      path: "/chat",
-      name: "chat",
-      component: ChatPage
+      path: "/forum",
+      name: "forum",
+      component: ForumPage
     }
   ]
 });
