@@ -1,7 +1,7 @@
 <template>
   <v-app-bar dark class="px-3">
     <v-toolbar-title>
-      SocialHub Chat
+      SocialHub Forum
     </v-toolbar-title>
 
     <v-spacer></v-spacer>

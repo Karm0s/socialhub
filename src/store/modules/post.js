@@ -17,6 +17,17 @@ const actions = {
     });
     console.log(data);
     commit('updatePosts', data);
+  },
+  async createPost({ rootState}, content){
+    await axios.post(`${process.env.VUE_APP_API_URL}/posts`, {
+      username: rootState.auth.user.username,
+      content: content
+    }, 
+    {
+      headers:{
+        authorization: `Bearer ${rootState.auth.jwtToken}`
+      }
+    });
   }
 };
 
