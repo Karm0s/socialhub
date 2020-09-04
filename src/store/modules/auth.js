@@ -32,13 +32,16 @@ const actions = {
     commit("setJwtToken", data.jwt);
     localStorage.setItem("jwtToken", data.jwt);
   },
+  async signOff({commit}){
+    localStorage.removeItem('jwtToken');
+    commit('setJwtToken', null);
+  },
   async loadUserInformations({ commit, state }) {
     const {data} = await axios.get(`${process.env.VUE_APP_API_URL}/users/me`, {
       headers: {
         Authorization: `Bearer ${state.jwtToken}`
       }
     });
-    console.log(data);
     commit('setUser', data);
   },
 };

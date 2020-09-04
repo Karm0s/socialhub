@@ -25,7 +25,10 @@ const router = new Router({
       component: ForumPage,
       beforeEnter: (to, from, next) => {
         if (!store.getters.isAuthenticated) next({ name: "auth" });
-        else next();
+        else {
+          store.dispatch("loadUserInformations");
+          next();
+        }
       },
     },
   ],

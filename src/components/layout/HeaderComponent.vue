@@ -6,15 +6,24 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn icon>
+    <v-btn icon @click="logOut">
       <v-icon>mdi-logout</v-icon>
     </v-btn>
   </v-app-bar>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
-  name: "HeaderComponent"
+  name: "HeaderComponent",
+  methods: {
+    ...mapActions(['signOff']),
+    logOut(){
+      this.signOff().then(() => {
+        this.$router.push({name: 'auth'});
+      });
+    }
+  }
 };
 </script>
 
