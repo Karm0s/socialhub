@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "AuthPage",
@@ -99,8 +99,15 @@ export default {
       ]
     };
   },
+  computed: mapGetters(['isAuthenticated']),
+  created(){
+    if (this.isAuthenticated) {
+      this.loadUserInformations();
+      this.$router.push({ name: "forum" });
+    }
+  },
   methods: {
-    ...mapActions(["authenticate", "register"]),
+    ...mapActions(["authenticate", "register", "loadUserInformations"]),
     resetForms() {
       this.username = "";
       this.email = "";

@@ -5,22 +5,30 @@ import Router from "vue-router";
 import AuthPage from "./pages/AuthPage.vue";
 import ForumPage from "./pages/ForumPage.vue";
 
+import store from "./store";
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
+      path: "/auth",
       name: "auth",
-      component: AuthPage
+      component: AuthPage,
     },
     {
-      path: "/forum",
+      path: "/",
+      alias: "/forum",
       name: "forum",
-      component: ForumPage
-    }
-  ]
+      component: ForumPage,
+      beforeEnter: (to, from, next) => {
+        if (!store.getters.isAuthenticated) next({ name: "auth" });
+        else next();
+      },
+    },
+  ],
 });
+
+export default router;
