@@ -27,7 +27,6 @@ export default {
   name: "AddPost",
   data(){
     return {
-      valid: true,
       content: "",
       contentRules: [
         v => !!v || "Content can't be left empty!"
@@ -35,13 +34,13 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['createPost']),
+    ...mapActions(['createPost', 'loadPosts']),
     resetForm(){
       this.content = '';
     },
     addPost(){
       this.createPost(this.content).then(() => {
-        console.log("reload posts now, later of course.");
+        this.loadPosts();
         this.resetForm();
       });
     }
