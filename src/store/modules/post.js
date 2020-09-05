@@ -5,7 +5,12 @@ const state = {
 };
 
 const getters = {
-  getPosts: (state) => state.allPosts
+  getPosts: (state) => state.allPosts.sort((a, b) => {
+    let dateA = new Date(a.created_at);
+    let dateB = new Date(b.created_at);
+
+    return dateA-dateB;
+  })
 };
 
 const actions = {

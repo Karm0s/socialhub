@@ -2,7 +2,7 @@
   <v-container>
     <v-list class="mb-2">
       <div v-for="message in getPosts" :key="message.id">
-        <ForumPost :username="message.username" :message="message.content"/>
+        <ForumPost :username="message.username" :message="message.content" :created_at="message.created_at"/>
       </div>
     </v-list>
   </v-container>
@@ -15,25 +15,7 @@ import ForumPost from "../ui/ForumPost";
 export default {
   name: "PostsComponent",
   data(){
-    return {
-      messages: [
-        {
-          id: 0,
-          username: 'Karm0s',
-          content: 'lorem'
-        },
-        {
-          id: 1,
-          username: 'Sof',
-          content: 'Hello Man'
-        },
-        {
-          id: 2,
-          username: 'Karm0s',
-          content: 'Zbiq'
-        },
-      ]
-    }
+    return {};
   },
   created(){
     this.loadPosts();
@@ -47,8 +29,8 @@ export default {
 </script>
 
 <style>
-.v-list{
+/* .v-list{
   overflow-y:auto;
   max-height: 75vh;
-}
+} */
 </style>
