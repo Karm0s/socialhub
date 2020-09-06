@@ -1,8 +1,8 @@
 <template>
   <v-container fill-height class="pb-10 mb-10">
     <v-row align="center" justify="center">
-      <v-col cols="4">
-        <v-row align="center" justify="center" class="py-10">
+      <v-col sm="6" lg="5">
+        <v-row align="center" justify="center" class="py-10 overline">
           <h1>
             SocialHub
           </h1>
@@ -10,7 +10,7 @@
 
         <v-card elevation="10">
           <v-card-text>
-            <v-tabs centered fixed-tabs @change="resetForms">
+            <v-tabs color="black" centered fixed-tabs @change="resetForms">
               <v-tab>
                 Sign In
               </v-tab>
@@ -33,7 +33,7 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn color="primary" :disabled="!valid" @click="signIn">
+                  <v-btn dark :disabled="!valid" @click="signIn">
                     Log In
                   </v-btn>
                 </v-form>
@@ -60,7 +60,7 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn color="primary" :disabled="!valid" @click="signUp">
+                  <v-btn dark :disabled="!valid" @click="signUp">
                     Sign Up
                   </v-btn>
                 </v-form>
