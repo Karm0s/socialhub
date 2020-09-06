@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col sm="12" md="10">
         <v-card elevation="0" class="mb-2">
-          <v-card-title>Write a Post</v-card-title>
+          <v-card-title class="overline "> <h2>Write a Post</h2> </v-card-title>
           <v-list-item-content class="mx-5">
             <v-form v-model="valid" lazy-validation>
               <v-textarea

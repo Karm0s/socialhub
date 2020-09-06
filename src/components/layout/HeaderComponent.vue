@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar dark class="px-3">
+  <v-app-bar dark class="px-3 overline">
     <v-toolbar-title>
       SocialHub Forum
     </v-toolbar-title>
