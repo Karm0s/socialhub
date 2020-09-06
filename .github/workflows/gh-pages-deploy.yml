@@ -22,5 +22,3 @@ jobs:
         run: |
           git config user.name "Karm0s" && git config user.email "bouchenna.yanis@protonmail.com"
           npm run gh-pages-deploy
-        env:
-          VUE_APP_API_URL: https://stark-falls-04048.herokuapp.com
