@@ -33,8 +33,12 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn class="white--text" color="black" :disabled="!validLogin" @click="signIn">
-                    Log In
+                  <v-btn width="100" class="white--text" color="black" :disabled="!validLogin" @click="signIn">
+                    <div v-if="!loadingLogin">
+                      Log In
+                    </div>
+                    <v-progress-circular size="25" width="3" v-else indeterminate>
+                    </v-progress-circular>
                   </v-btn>
                 </v-form>
               </v-tab-item>
@@ -60,8 +64,12 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn class="white--text" color="black" :disabled="!validSignup" @click="signUp">
-                    Sign Up
+                  <v-btn width="100" class="white--text" color="black" :disabled="!validSignup" @click="signUp">
+                    <div v-if="!loadingSignup">
+                      Sign Up
+                    </div>
+                    <v-progress-circular size="25" width="3" v-else indeterminate>
+                    </v-progress-circular>
                   </v-btn>
                 </v-form>
               </v-tab-item>
@@ -82,7 +90,8 @@ export default {
     return {
       validLogin: false,
       validSignup: false,
-      loading: false,
+      loadingLogin: false,
+      loadingSignup: false,
       username: "",
       usernameRules: [
         v => !!v || "Username is required",
@@ -120,7 +129,7 @@ export default {
         this.validLogin = false;
         return;
       }
-      this.loading = true;
+      this.loadingLogin = true;
       this.authenticate({ email: this.email, password: this.password }).then(
         () => {
           console.log("Login Done, redirecting now... (next time)");
@@ -133,7 +142,7 @@ export default {
         this.validSignup = false;
         return;
       }
-      this.loading = true;
+      this.loadingSignup = true;
       this.register({username: this.username, email: this.email, password: this.password}).then(() => {
         console.log("Registration done, redirecting now... (next time)");
         this.$router.push({path: 'forum'});
