@@ -20,7 +20,7 @@ export default {
   },
   created(){
     this.loadPosts();
-    this.interval = setInterval(() => this.loadPosts(), 30*1000);
+    this.interval = setInterval(() => this.loadPosts(), 10*1000);
   },
   computed: mapGetters(['getPosts']),
   components: {

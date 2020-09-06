@@ -163,11 +163,9 @@ export default {
       this.loginError = false;
       this.authenticate({ email: this.email, password: this.password })
         .then(() => {
-          console.log("Login Done, redirecting now... (next time)");
-          this.$router.push({ path: "forum" });
+          this.$router.push({ path: "/" });
         })
         .catch(() => {
-          console.log("An Error happened");
           this.loadingLogin = false;
           this.loginError = true;
         });
@@ -185,11 +183,9 @@ export default {
         password: this.password,
       })
         .then(() => {
-          console.log("Registration done, redirecting now... (next time)");
-          this.$router.push({ path: "forum" });
+          this.$router.push({ path: "/" });
         })
         .catch(() => {
-          console.log("An Error happened");
           this.loadingSignup = false;
           this.signupError = true;
         });
