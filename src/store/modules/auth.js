@@ -12,7 +12,6 @@ const getters = {
 
 const actions = {
   authenticate({ commit }, identifiers) {
-    console.log("here");
     return new Promise((resolve, reject) => {
       axios
         .post(`${process.env.VUE_APP_API_URL}/auth/local`, {

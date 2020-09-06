@@ -42,7 +42,6 @@ export default {
         hour12: true,
         timeZone: 'UTC'
       });
-      console.log(formatter.format(datetime));
       return formatter.format(datetime);
     } 
   },

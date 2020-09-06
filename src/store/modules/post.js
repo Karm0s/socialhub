@@ -20,7 +20,6 @@ const actions = {
         Authorization: `Bearer ${rootState.auth.jwtToken}`
       }
     });
-    console.log(data);
     commit('updatePosts', data);
   },
   async createPost({ rootState}, content){
