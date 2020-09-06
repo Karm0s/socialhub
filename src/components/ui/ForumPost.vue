@@ -1,12 +1,25 @@
 <template>
-  <v-card elevation="3" dark class="mb-2">
-    <v-list-item two-line>
-      <v-list-item-content>
-        <div class="overline mb-2">{{ username }}</div>
-        <div class="px-5 pb-2">{{ message }}</div>
-        <div class="text-right grey--text">{{ publish_date }}</div>
-      </v-list-item-content>
-    </v-list-item>
+  <v-card elevation="3" dark class="mb-2 mx-auto px-4" min-height="200px">
+      <v-container fluid>
+        <v-row>
+          <v-cols>
+            <div class="overline mb-4">{{ username }}</div>
+          </v-cols>
+        </v-row>
+        <v-row>
+          <v-cols>
+            <div class="px-5 pb-2 post-message">{{ message }}</div>
+          </v-cols>
+        </v-row>
+
+        <v-spacer ></v-spacer>
+
+        <v-row justify="end">
+          <v-cols>
+            <div class="text-right grey--text">{{ publish_date }}</div>
+          </v-cols>
+        </v-row>
+      </v-container>
   </v-card>
 </template>
 
@@ -36,4 +49,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.post-message{
+  min-height: 150px;
+}
+</style>

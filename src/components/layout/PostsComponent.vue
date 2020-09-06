@@ -3,6 +3,7 @@
     <v-list class="mb-2">
       <div v-for="message in getPosts" :key="message.id">
         <ForumPost :username="message.username" :message="message.content" :created_at="message.created_at"/>
+        <v-divider class="my-4"/>
       </div>
     </v-list>
   </v-container>
