@@ -19,17 +19,19 @@
               </v-tab>
 
               <v-tab-item>
-                <v-alert v-if="loginError" type="error" class="mt-2">An error occured! Please check you credentials and 
-                  retry.
+                <v-alert v-if="loginError" type="error" class="mt-2"
+                  >An error occured! Please check you credentials and retry.
                 </v-alert>
                 <v-form v-model="validLogin" lazy-validation>
                   <v-text-field
+                    color="black"
                     label="E-mail"
                     v-model="email"
                     :rules="emailRules"
                     required
                   ></v-text-field>
                   <v-text-field
+                    color="black"
                     label="Password"
                     v-model="password"
                     :rules="passwordRules"
@@ -58,23 +60,26 @@
               </v-tab-item>
 
               <v-tab-item>
-                <v-alert v-if="signupError" type="error" class="mt-2">An error occured! Please check you credentials and 
-                  retry.
+                <v-alert v-if="signupError" type="error" class="mt-2"
+                  >An error occured! Please check you credentials and retry.
                 </v-alert>
                 <v-form v-model="validSignup" lazy-validation>
                   <v-text-field
+                    color="black"
                     label="Username"
                     v-model="username"
                     :rules="usernameRules"
                     required
                   ></v-text-field>
                   <v-text-field
+                    color="black"
                     label="E-mail"
                     v-model="email"
                     :rules="emailRules"
                     required
                   ></v-text-field>
                   <v-text-field
+                    color="black"
                     label="Password"
                     v-model="password"
                     :rules="passwordRules"
