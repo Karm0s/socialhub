@@ -19,7 +19,7 @@
               </v-tab>
 
               <v-tab-item>
-                <v-form v-model="valid" lazy-validation>
+                <v-form v-model="validLogin" lazy-validation>
                   <v-text-field
                     label="E-mail"
                     v-model="email"
@@ -33,14 +33,14 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn dark :disabled="!valid" @click="signIn">
+                  <v-btn class="white--text" color="black" :disabled="!validLogin" @click="signIn">
                     Log In
                   </v-btn>
                 </v-form>
               </v-tab-item>
 
               <v-tab-item>
-                <v-form v-model="valid" lazy-validation>
+                <v-form v-model="validSignup" lazy-validation>
                   <v-text-field
                     label="Username"
                     v-model="username"
@@ -60,7 +60,7 @@
                     required
                     type="password"
                   ></v-text-field>
-                  <v-btn dark :disabled="!valid" @click="signUp">
+                  <v-btn class="white--text" color="black" :disabled="!validSignup" @click="signUp">
                     Sign Up
                   </v-btn>
                 </v-form>
@@ -80,7 +80,9 @@ export default {
   name: "AuthPage",
   data() {
     return {
-      valid: true,
+      validLogin: false,
+      validSignup: false,
+      loading: false,
       username: "",
       usernameRules: [
         v => !!v || "Username is required",
@@ -114,6 +116,11 @@ export default {
       this.password = "";
     },
     signIn() {
+      if (!(this.email && this.password)){
+        this.validLogin = false;
+        return;
+      }
+      this.loading = true;
       this.authenticate({ email: this.email, password: this.password }).then(
         () => {
           console.log("Login Done, redirecting now... (next time)");
@@ -122,6 +129,11 @@ export default {
       );
     },
     signUp() {
+      if (!(this.email && this.password && this.username)){
+        this.validSignup = false;
+        return;
+      }
+      this.loading = true;
       this.register({username: this.username, email: this.email, password: this.password}).then(() => {
         console.log("Registration done, redirecting now... (next time)");
         this.$router.push({path: 'forum'});
