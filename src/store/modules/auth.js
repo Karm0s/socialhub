@@ -11,38 +11,54 @@ const getters = {
 };
 
 const actions = {
-  async authenticate({ commit }, identifiers) {
-    const { data } = await axios.post(
-      `${process.env.VUE_APP_API_URL}/auth/local`,
-      {
-        identifier: identifiers.email,
-        password: identifiers.password,
-      }
-    );
-    commit("setUser", data.user);
-    commit("setJwtToken", data.jwt);
-    localStorage.setItem("jwtToken", data.jwt);
+  authenticate({ commit }, identifiers) {
+    console.log("here");
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${process.env.VUE_APP_API_URL}/auth/local`, {
+          identifier: identifiers.email,
+          password: identifiers.password,
+        })
+        .then(({data}) => {
+          commit("setUser", data.user);
+          commit("setJwtToken", data.jwt);
+          localStorage.setItem("jwtToken", data.jwt);
+          resolve();
+        })
+        .catch(() => {
+          reject();
+        });
+    });
   },
   async register({ commit }, identifiers) {
-    const { data } = await axios.post(
-      `${process.env.VUE_APP_API_URL}/auth/local/register`,
-      identifiers
-    );
-    commit("setUser", data.user);
-    commit("setJwtToken", data.jwt);
-    localStorage.setItem("jwtToken", data.jwt);
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${process.env.VUE_APP_API_URL}/auth/local/register`, identifiers)
+        .then(({data}) => {
+          commit("setUser", data.user);
+          commit("setJwtToken", data.jwt);
+          localStorage.setItem("jwtToken", data.jwt);
+          resolve();
+        })
+        .catch(() => {
+          reject();
+        });
+    });
   },
-  async signOff({commit}){
-    localStorage.removeItem('jwtToken');
-    commit('setJwtToken', null);
+  async signOff({ commit }) {
+    localStorage.removeItem("jwtToken");
+    commit("setJwtToken", null);
   },
   async loadUserInformations({ commit, state }) {
-    const {data} = await axios.get(`${process.env.VUE_APP_API_URL}/users/me`, {
-      headers: {
-        Authorization: `Bearer ${state.jwtToken}`
+    const { data } = await axios.get(
+      `${process.env.VUE_APP_API_URL}/users/me`,
+      {
+        headers: {
+          Authorization: `Bearer ${state.jwtToken}`,
+        },
       }
-    });
-    commit('setUser', data);
+    );
+    commit("setUser", data);
   },
 };
 
